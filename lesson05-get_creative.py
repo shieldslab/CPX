@@ -1,13 +1,27 @@
 from adafruit_circuitplayground.express import cpx
 from time import sleep
 
+# this code reads from 4 different sensors on the CPX:
+# 1) switch - True or False
+# 2) accelerometer - returns a tuple of three values
+# 3) light sensor - returns a value, typically between 0 and 300
+# 4) temperature sensor - in Celsius
+# it also calls the shake() function and reads the tapped property,
+# both of which really just use the accelerometer
+# shake() returns True or False, but it's a function because it accepts a a property, shake_threshold
+
 while True:
     if cpx.switch:
-        print("switch on")
+        cpx.detect_taps = 2
+        cpx.pixels[0] = (100,0,0)
+        cpx.pixels[1] = (100,0,0)
+    else
+        cpx.detect_taps = 1
+        cpx.pixels[0] = (100,0,0)
+        cpx.pixels[1] = (0,0,0)
 
-    cpx.detect_taps = 2
     if cpx.tapped:
-        print("double tap")
+        print("tapped")
 
     if cpx.shake():
         print("shake")
@@ -27,4 +41,3 @@ while True:
     print(cpx.temperature)
 
     sleep(0.05)
-
