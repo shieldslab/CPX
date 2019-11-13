@@ -8,11 +8,11 @@ from adafruit_motor import servo
 # CPX has PWM on the following pins: A1, A2, A3, A6, A8, A9
 # There is NO PWM on: A0, A4, A5, A7
 
-# create a PWMOut object on pins A2 and A3
+# create two PWMOut objects on pins A2 and A3
 pwm1 = pulseio.PWMOut(board.A2, duty_cycle=0, frequency=50)
 pwm2 = pulseio.PWMOut(board.A3, duty_cycle=0, frequency=50)
 
-# Create a servo object, my_servo.
+# Create two servo objects, servo1 and servo2
 servo1 = servo.Servo(pwm1)
 servo2 = servo.Servo(pwm2)
 
