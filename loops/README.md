@@ -1,6 +1,6 @@
 # While Loop Examples
 
-While loops in Python are pretty straightforward.  The syntax is 
+While loop syntax:
 ```
 while [a statement that will evaluate to true or false]:
      # code that will run while the statement is true
