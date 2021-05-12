@@ -12,7 +12,7 @@ from adafruit_motor import servo
 pwm1 = pulseio.PWMOut(board.A2, duty_cycle=0, frequency=50)
 pwm2 = pulseio.PWMOut(board.A3, duty_cycle=0, frequency=50)
 
-# Create two servo objects, servo1 and servo2
+# Create two servo objects, one 180 and one continuous
 servo180 = servo.Servo(pwm1)
 servoCont = servo.ContinuousServo(pwm2)
 
@@ -23,7 +23,7 @@ while True:
     for angle in range(180, 0, -1): # 180 - 0 degrees, 5 degrees at a time.
         servo180.angle = angle
         time.sleep(0.01)
-    for throttle in range(-100, 100, 2):
+    for throttle in range(-100, 100, 2):  
         servoCont.throttle = throttle/100
         time.sleep(0.05)
     for throttle in range(100, -100, -2):
